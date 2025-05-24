@@ -1,6 +1,10 @@
 import tkinter as tk
 import task
 
+def on_click():
+    entry = var.get()
+    task_label(entry,30)
+
 root = tk.Tk()
 root.title("My App")
 root.geometry("800x600")
@@ -13,13 +17,14 @@ class task_label:
 
 footer = tk.Frame(root,background="gray",height="100",width="800")
 
-
 widgetframe = tk.Frame(root)
 widgetframe.pack(fill="both")
 
-textform = tk.Entry(footer)
-formbotton = tk.Button(footer,text="Click")
+var = tk.StringVar()
+textform = tk.Entry(footer,textvariable=var)
+formbotton = tk.Button(footer,text="Click",command=on_click)
 textform.pack()
+formbotton.pack()
 
 footer.pack(side="bottom",fill="x")
 
